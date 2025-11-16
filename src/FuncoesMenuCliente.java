@@ -306,8 +306,4 @@ public class FuncoesMenuCliente {
         System.out.println("A espécie era: " + especie);
         System.out.println("Número de tentativas: " + tentativas);
     }
-
-    public static void imprimirExit() throws FileNotFoundException {
-        System.out.println("Ficheiros/exit.txt");
-    }
 }

@@ -46,7 +46,7 @@ public class Menu {
         } while (opcao != 0);
     }
 
-    public static void menuAdmin(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes) throws FileNotFoundException {
+    public static void menuAdmin(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes, String caminhoExit) throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
 
@@ -118,7 +118,8 @@ public class Menu {
 
 
                 case 0:
-                    FuncoesMenuCliente.imprimirExit();
+                    FuncoesMenuAdmin.imprimirFicheiro(caminhoExit);
+
                     break;
 
                 default:
@@ -129,7 +130,7 @@ public class Menu {
         } while (opcao != 0);
     }
 
-    public static void menuCliente(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes) throws FileNotFoundException {
+    public static void menuCliente(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes, String caminhoExit) throws FileNotFoundException {
 
 
         Scanner input = new Scanner(System.in);
@@ -170,7 +171,7 @@ public class Menu {
                     break;
 
                 case 0:
-                    FuncoesMenuCliente.imprimirExit();
+                    FuncoesMenuAdmin.imprimirFicheiro(caminhoExit);
                     break;
 
                 default:
@@ -182,7 +183,7 @@ public class Menu {
 
     }
 
-    public static void menuLogin(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes) throws FileNotFoundException {
+    public static void menuLogin(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes, String caminhoExit) throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
 
@@ -211,7 +212,7 @@ public class Menu {
 
                     if (username.equals("admin") && password.equals("123")) {
                         // Login válido
-                        menuAdmin(caminhoAnimais, caminhoClientes, caminhoInteracoes);
+                        menuAdmin(caminhoAnimais, caminhoClientes, caminhoInteracoes, caminhoExit);
                     } else {
                         System.out.println("Login incorreto");
                     }
@@ -219,11 +220,11 @@ public class Menu {
                     break;
 
                 case 2: // CLIENTE
-                    menuCliente(caminhoAnimais, caminhoClientes, caminhoInteracoes);
+                    menuCliente(caminhoAnimais, caminhoClientes, caminhoInteracoes, caminhoExit);
                     break;
 
                 case 0: // SAIR
-                    FuncoesMenuCliente.imprimirExit();
+                    FuncoesMenuAdmin.imprimirFicheiro(caminhoExit);
                     break;
 
                 default:
@@ -240,7 +241,8 @@ public class Menu {
         String caminhoAnimais = "Ficheiros/animais.csv";
         String caminhoClientes = "Ficheiros/clientes.csv";
         String caminhoInteracoes = "Ficheiros/interacoes.csv";
+        String caminhoExit = "Ficheiros/exit.txt";
 
-        menuLogin(caminhoAnimais, caminhoClientes, caminhoInteracoes);
+        menuLogin(caminhoAnimais, caminhoClientes, caminhoInteracoes, caminhoExit);
     }
 }
