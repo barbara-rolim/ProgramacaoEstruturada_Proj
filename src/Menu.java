@@ -72,28 +72,50 @@ public class Menu {
 
             switch (opcao) {
 
-                case 1: // Consultar Vendas
+                case 1:
                     listarConteudoFicheiros();
                     break;
 
-                case 2: // Pesquisar Clientes
+                case 2:
                     System.out.println("\nEstatísticas gerais de interações");
                     FuncoesMenuAdmin.estatisticasInteracoes(caminhoInteracoes);
                     break;
 
-                case 3: //
+                case 3:
                     System.out.println("\nReceita total por tipo de interação");
                    FuncoesMenuAdmin.calcularReceitas(caminhoInteracoes);
                     break;
 
-                case 4: // ...
+                case 4:
+                    System.out.println("\nAnimal mais popular");
+                    FuncoesMenuAdmin.animalMaisPopular(caminhoAnimais, caminhoInteracoes);
                     break;
 
-                case 5: // ...
+                case 5:
+                    System.out.println("5. Top 3 espécies com mais apadrinhamentos");
+                    FuncoesMenuAdmin.top3EspeciesApadrinhadas();
                     break;
 
-                case 6: // ...
+                case 6:
+                    System.out.println("\nListar padrinhos de um animal");
+                    FuncoesMenuAdmin.listarPadrinhos(caminhoInteracoes, caminhoClientes);
                     break;
+
+                case 7:
+                    System.out.println("\nEspetáculo mais rentável");
+                    FuncoesMenuAdmin.espetaculoMaisRentavel(caminhoInteracoes, caminhoAnimais);
+                    break;
+
+                case 8:
+                    System.out.println("\nRanking de animais em perigo de extinção");
+                    FuncoesMenuAdmin.mostrarRankingExtincao(caminhoAnimais, caminhoInteracoes);
+                    break;
+
+                case 9:
+                    System.out.println("\nEstatísticas por habitat");
+                    FuncoesMenuAdmin.estatisticasPorHabitat(caminhoAnimais, caminhoInteracoes);
+                    break;
+
 
                 case 0: //
                     break;
@@ -106,7 +128,7 @@ public class Menu {
         } while (opcao != 0);
     }
 
-    public static void menuCliente(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes) {
+    public static void menuCliente(String caminhoAnimais, String caminhoClientes, String caminhoInteracoes) throws FileNotFoundException {
 
 
         Scanner input = new Scanner(System.in);
@@ -127,19 +149,26 @@ public class Menu {
 
             switch (opcao) {
 
-                case 1: //
+                case 1:
+                    System.out.println("1. Ver catálogo de animais por habitat");
+                    FuncoesMenuCliente.catalogoPorHabitat(caminhoAnimais, caminhoInteracoes);
                     break;
 
                 case 2: //
+                    FuncoesMenuCliente.verAtividadesAnimal(caminhoAnimais, caminhoInteracoes);
                     break;
 
                 case 3: //
+                    System.out.println("3. Simular apadrinhamento de um animal");
+                    FuncoesMenuCliente.simularApadrinhamento(caminhoAnimais);
                     break;
 
-                case 4: //
+                case 4:
+                    System.out.println("4. Jogo: Adivinha a espécie");
+                    FuncoesMenuCliente.jogoAdivinhaEspecie(caminhoAnimais);
                     break;
 
-                case 0: //
+                case 0:
                     break;
 
                 default:
@@ -192,7 +221,7 @@ public class Menu {
                     break;
 
                 case 0: // SAIR
-                    System.out.println("\nObrigado! Volte sempre...");
+                    FuncoesMenuCliente.imprimirExit();
                     break;
 
                 default:
@@ -206,8 +235,8 @@ public class Menu {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        String caminhoAnimais = "";
-        String caminhoClientes = "";
+        String caminhoAnimais = "Ficheiros/animais.csv";
+        String caminhoClientes = "Ficheiros/clientes.csv";
         String caminhoInteracoes = "Ficheiros/interacoes.csv";
 
         menuLogin(caminhoAnimais, caminhoClientes, caminhoInteracoes);
