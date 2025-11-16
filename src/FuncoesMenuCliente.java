@@ -11,10 +11,10 @@ public class FuncoesMenuCliente {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            if (itens[0].equals(idAnimal)) {
-                return itens[1];
+            if (itensDaLinha[0].equals(idAnimal)) {
+                return itensDaLinha[1];
             }
         }
         return "animalDesconhecido";
@@ -27,10 +27,10 @@ public class FuncoesMenuCliente {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            if (itens[0].equals(idAnimal)) {
-                return itens[2];
+            if (itensDaLinha[0].equals(idAnimal)) {
+                return itensDaLinha[2];
             }
         }
         return "especieAnimal";
@@ -46,9 +46,9 @@ public class FuncoesMenuCliente {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            String habitat = itens[3];
+            String habitat = itensDaLinha[3];
 
             boolean existe = false;
 
@@ -74,12 +74,10 @@ public class FuncoesMenuCliente {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            if (itens[3].equals(habitat)) {
-                System.out.println("- " + itens[1]);
-                System.out.println("  Espécie: " + itens[2]);
-                System.out.println();
+            if (itensDaLinha[3].equals(habitat)) {
+                System.out.println("- " + itensDaLinha[1] + "  Espécie: " + itensDaLinha[2]);
             }
         }
         return 0;
@@ -105,9 +103,9 @@ public class FuncoesMenuCliente {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            if (itens[0].equals(idAnimal)) {
+            if (itensDaLinha[0].equals(idAnimal)) {
                 return true;
             }
         }
@@ -123,9 +121,9 @@ public class FuncoesMenuCliente {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            if (itens[3].equals(idAnimal) && itens[2].equals(tipo)) {
+            if (itensDaLinha[3].equals(idAnimal) && itensDaLinha[2].equals(tipo)) {
                 contador++;
             }
         }
@@ -139,10 +137,10 @@ public class FuncoesMenuCliente {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            if (itens[3].equals(idAnimal) && itens[2].equals(tipo)) {
-                System.out.println("- " + itens[4]);
+            if (itensDaLinha[3].equals(idAnimal) && itensDaLinha[2].equals(tipo)) {
+                System.out.println(" - " + itensDaLinha[4]);
             }
         }
     }
@@ -199,14 +197,10 @@ public class FuncoesMenuCliente {
             String plano) {
 
         System.out.println("\n\n-*-*-*-*-*-RESUMO DO APADRINHAMENTO -*-*-*-*-*-");
-        System.out.println("Padrinho: " + nomeCliente);
-        System.out.println("Email: " + email);
-
-        System.out.println("\nAnimal escolhido:");
-        System.out.println("- " + nomeAnimal + " (" + especieAnimal + ")");
-
-        System.out.println("\nValor mensal: " + valor + " €");
-        System.out.println("Plano atribuído: " + plano);
+        System.out.println("Padrinho: " + nomeCliente + ("Email: " + email));
+        System.out.println("\nAnimal: " + nomeAnimal  + " - " + especieAnimal);
+        System.out.println("\nPlano: " + plano);
+        System.out.println("Valor: " + valor + " €/mes");
     }
 
     public static void simularApadrinhamento(String caminhoAnimais) throws FileNotFoundException {
@@ -247,7 +241,7 @@ public class FuncoesMenuCliente {
     public static int contarAnimais(String caminhoAnimais) throws FileNotFoundException {
 
         Scanner sc = new Scanner(new File(caminhoAnimais));
-        sc.nextLine(); // cabeçalho
+        sc.nextLine();
 
         int contador = 0;
 
@@ -262,41 +256,40 @@ public class FuncoesMenuCliente {
 
         Scanner input = new Scanner(System.in);
 
-        // 1. Contar animais
         int total = contarAnimais(caminhoAnimais);
 
-        // 2. Número aleatório entre 0 e total-1
-        Random rd = new Random();
-        int randomIndex = rd.nextInt(total);
+        Random numeroRandom = new Random();
+        int randomIndex = numeroRandom.nextInt(total);
 
-        // 3. Buscar o animal correspondente
         Scanner sc = new Scanner(new File(caminhoAnimais));
-        sc.nextLine(); // cabeçalho
+        sc.nextLine();
 
-        int atual = 0;
-        String nome = "", especie = "", habitat = "", dieta = "", extincao = "";
+        int contador = 0;
+        String nome = "";
+        String especie = "";
+        String habitat = "";
+        String dieta = "";
+        String extincao = "";
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] itens = linha.split(";");
+            String[] itensDaLinha = linha.split(";");
 
-            if (atual == randomIndex) {
-                nome = itens[1];
-                especie = itens[2];
-                habitat = itens[3];
-                dieta = itens[4];
-                extincao = itens[5];
+            if (contador == randomIndex) {
+                nome = itensDaLinha[1];
+                especie = itensDaLinha[2];
+                habitat = itensDaLinha[3];
+                dieta = itensDaLinha[4];
+                extincao = itensDaLinha[5];
             }
-            atual++;
+            contador++;
         }
 
-        // 4. Mostrar pistas
         System.out.println("\n\n-*-*-*-*-*- ADIVINHA A ESPÉCIE -*-*-*-*-*-");
-        System.out.println("Pista 1: Vive no habitat → " + habitat);
-        System.out.println("Pista 2: Dieta → " + dieta);
-        System.out.println("Pista 3: Em perigo de extinção → " + extincao);
+        System.out.println("Pista: Vive no habitat → " + habitat);
+        System.out.println("Pista: Tem essa dieta → " + dieta);
+        System.out.println("Pista: Perigo de extinção → " + extincao);
 
-        // 5. Tentar adivinhar
         int tentativas = 0;
         String palpite = "";
 
@@ -309,15 +302,12 @@ public class FuncoesMenuCliente {
                 System.out.println("Errado! Tenta novamente...");
             }
         }
-
-        // 6. Acertou
-        System.out.println("\n🎉 Acertou! 🎉");
+        System.out.println("\nAcertou!");
         System.out.println("A espécie era: " + especie);
         System.out.println("Número de tentativas: " + tentativas);
     }
 
     public static void imprimirExit() throws FileNotFoundException {
-        FuncoesMenuAdmin.imprimirFicheiro("Ficheiros/exit.txt");
+        System.out.println("Ficheiros/exit.txt");
     }
-
 }

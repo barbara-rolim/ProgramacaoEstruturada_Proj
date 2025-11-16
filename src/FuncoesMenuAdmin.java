@@ -16,7 +16,6 @@ public class FuncoesMenuAdmin {
         }
     }
 
-
     public static int contarInteracoes(String caminhoInteracoes, String tipoInteracao) throws FileNotFoundException {
 
         Scanner sc = new Scanner(new File(caminhoInteracoes));
@@ -33,7 +32,6 @@ public class FuncoesMenuAdmin {
                 contador++;
             }
         }
-
         return contador;
     }
 
@@ -43,7 +41,6 @@ public class FuncoesMenuAdmin {
         int contadorEspetaculos = FuncoesMenuAdmin.contarInteracoes(caminhoInteracoes, "ESPETACULO");
         int contadorAlimentacao = FuncoesMenuAdmin.contarInteracoes(caminhoInteracoes, "ALIMENTACAO");
         int contadorApadrinhamento = FuncoesMenuAdmin.contarInteracoes(caminhoInteracoes, "APADRINHAMENTO");
-
         int contadorGeral = contadorVisitas + contadorEspetaculos + contadorAlimentacao + contadorApadrinhamento;
 
         System.out.println("Total de Interações: " + contadorGeral);
@@ -51,14 +48,11 @@ public class FuncoesMenuAdmin {
         System.out.println("ESPETACULOS: " + contadorEspetaculos);
         System.out.println("ALIMENTAÇÕES: " + contadorAlimentacao);
         System.out.println("APADRINHAMENTOS: " + contadorApadrinhamento);
-
     }
 
     public static double receitaInteracoes(String caminhoInteracoes, String tipoInteracao) throws FileNotFoundException {
         Scanner sc = new Scanner(new File(caminhoInteracoes));
-
         String linha = sc.nextLine();
-
         double soma = 0.0;
 
         while (sc.hasNextLine()) {
@@ -78,7 +72,6 @@ public class FuncoesMenuAdmin {
         double receitasEspetaculos = FuncoesMenuAdmin.receitaInteracoes(caminhoInteracoes, "ESPETACULO");
         double receitasAlimentacao = FuncoesMenuAdmin.receitaInteracoes(caminhoInteracoes, "ALIMENTACAO");
         double receitasApadrinhamento = FuncoesMenuAdmin.receitaInteracoes(caminhoInteracoes, "APADRINHAMENTO");
-
         double contadorGeral = receitasVisitas + receitasEspetaculos + receitasAlimentacao + receitasApadrinhamento;
 
         System.out.println("Total de Interações: " + contadorGeral);
@@ -86,14 +79,12 @@ public class FuncoesMenuAdmin {
         System.out.println("ESPETACULOS: " + receitasEspetaculos);
         System.out.println("ALIMENTAÇÕES: " + receitasAlimentacao);
         System.out.println("APADRINHAMENTOS: " + receitasApadrinhamento);
-
     }
 
     public static void animalMaisPopular(String caminhoAnimais, String caminhoInteracoes) throws FileNotFoundException {
 
         Scanner sc = new Scanner(new File(caminhoAnimais));
         sc.nextLine();
-
         String idPopular = "";
         String nomePopular = "";
         String especiePopular = "";
@@ -130,14 +121,11 @@ public class FuncoesMenuAdmin {
     public static void top3EspeciesApadrinhadas() {
 
         System.out.println("\n\n-*-*-*-*-*-TOP 3 ESPÉCIES COM MAIS APADRINHAMENTOS-*-*-*-*-*-");
-
         System.out.println("\nInfelizmente...");
         System.out.println("Depois de várias horas de cálculos altamente complexos,");
         System.out.println("a aluna por mais aplicada que seja se rendeu.");
-
         System.out.println("\nMas não se preocupe!");
         System.out.println("Todas as espécies são incríveis, então considere todas no TOP 3!");
-
         System.out.println("\n(Esta funcionalidade será adicionada na versão 2.0 do projeto)");
     }
 
@@ -161,9 +149,8 @@ public class FuncoesMenuAdmin {
                 String plano = itensDaLinha[4];
                 String valor = itensDaLinha[5];
 
-
                 Scanner in = new Scanner(new File(caminhoClientes));
-                in.nextLine(); //
+                in.nextLine();
 
                 String nomeCliente = "";
                 String emailCliente = "";

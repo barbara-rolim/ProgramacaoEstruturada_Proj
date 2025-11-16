@@ -117,7 +117,8 @@ public class Menu {
                     break;
 
 
-                case 0: //
+                case 0:
+                    FuncoesMenuCliente.imprimirExit();
                     break;
 
                 default:
@@ -169,6 +170,7 @@ public class Menu {
                     break;
 
                 case 0:
+                    FuncoesMenuCliente.imprimirExit();
                     break;
 
                 default:
@@ -241,5 +243,4 @@ public class Menu {
 
         menuLogin(caminhoAnimais, caminhoClientes, caminhoInteracoes);
     }
-
 }
