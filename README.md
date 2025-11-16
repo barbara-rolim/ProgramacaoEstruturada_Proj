@@ -77,7 +77,7 @@ O programa lê os seguintes ficheiros CSV:
 ## 📜 Créditos
 
 Projeto desenvolvido por **Barbara Rolim**  
-UC: *Cesae Digital - Full Stack*  
+UC: *Cesae Digital - Full Stack - Programação Estruturada*  
 Versão: **ZooManager v1.0**
 
 ---
